@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nindō v1.0</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="img/favicon.svg">
+</head>
+<body>
+    <div class="credits" id="credits-button"></div>
+    <div class="grid">
+        <div class="profile">
+            <div class="profile-content">
+                <div class="sun"></div>
+                <div class="torii"></div>
+                <label class="char-image-button" for="char-image-browse">
+                    <img class="char-img" id="char-img" src="img/char_img.png" alt="">
+                    <input class="char-img-browse" type="file" accept=".png" id="char-image-browse">
+                </label>
+                <div class="left-cloud"></div>
+                <div class="right-cloud"></div>
+                <div class="bio-button" id="bio-button" title="Escreva sua autobiografia"></div>
+                <input class="village-button" type="checkbox" id="village-button"></input>
+                <div class="village-choose" id="village-choose">
+                    <input class="konoha-bt" type="checkbox" name="konoha-bt" id="konoha-bt">
+                    <input class="kiri-bt" type="checkbox" name="kiri-bt" id="kiri-bt">
+                    <input class="suna-bt" type="checkbox" name="suna-bt" id="suna-bt">
+                    <input class="iwa-bt" type="checkbox" name="iwa-bt" id="iwa-bt">
+                    <input class="kumo-bt" type="checkbox" name="kumo-bt" id="kumo-bt">
+                    <input class="ame-bt" type="checkbox" name="ame-bt" id="ame-bt">
+                </div>
+            </div>
+            <div class="profile-name">
+                <input class="name-input font-big" type="text" id="name-input" placeholder="O NAMAE WA?"></input>
+            </div>
+            <div class="profile-bio" id="profile-bio">
+                <div class="profile-bg" id="profile-bg"></div>
+                <div class="bio-bg">
+                    <div class="bio-header"></div>
+                    <div class="bio-content">
+                        <label class="bio-img-button" for="bio-image-browse">
+                            <img class="bio-img" id="bio-img" src="img/bio_img.png" alt="">
+                            <input class="bio-img-browse" type="file" accept=".png" id="bio-image-browse">
+                        </label>
+                        <div class="bio-story">
+                            <label for="bio-txt" class="bio-label font-big levibrush">- Biografia -</label>
+                            <textarea class="bio-txt font-base-label levibrush" name="bio-txt" id="bio-txt" cols="30" rows="20" maxlength="1066" placeholder="
+
+Use a criatividade e conte em detalhes a historia desse personagem!
+
+So nao vai incorporar o Kishimoto e usar cinquenta flashbacks.
+
+... Ue? 
+            
+O que a Tenten ta fazendo perto do- 
+
+MULHER LARGA ESSA KUNAI 
+
+O BALANCO NAO TEM CULPA!!!"></textarea>
+                        </div>
+                    </div>
+                    <div class="bio-footer"></div>
+                </div>
+                <div class="bio-scroll"></div>
+            </div>
+        </div>
+        <div class="info">
+            <div class="header"></div>
+            <div class="footer"></div>
+            <div class="static">
+                <span class="type">
+                    <label class="font-upper font-big text-indent levibrush" for="type">TIPO</label>
+                    <input class="type-input font-upper font-bigger text-indent levibrush" type="text" name="type" id="type" placeholder="null" title="Seu jeito ninja, dattebayo!">
+                </span>
+                <span class="rank">
+                    <label class="font-base-label font-upper font-italic levibrush" for="rank">RANK</label>
+                    <input class="rank-input font-upper font-big text-indent levibrush" type="text" name="rank" id="rank" placeholder="null">
+                </span>
+                <div class="weapon">
+                    <label class="weapon-label font-base-label" for="weapon-name" title="Arma">Arma</label>
+                    <input class="weapon-name font-base equipment-txt-height" type="text" name="weapon-name" id="weapon-name" placeholder="Nome" title="O nome da arma que utiliza">
+                    <label class="font-base-label" for="weapon-dice" title="Dado de dano">Dano</label>
+                    <input class="weapon-dice font-base timesnewroman equipment-txt-height" type="text" name="weapon-dice" id="weapon-dice" placeholder="Dado" title="Valor do dado de dano">
+                    <input class="weapon-desc font-base font-italic timesnewroman equipment-txt-height" type="text" name="weapon-desc" id="weapon-desc" placeholder="Descrição" title="A descrição da arma que utiliza">
+                </div>
+                <div class="armor">
+                    <label class="armor-label font-base-label" for="armor-name" title="Vestes">Vestes</label>
+                    <input class="armor-name font-base equipment-txt-height" type="text" name="armor-name" id="armor-name" placeholder="Nome" title="O nome da veste que utiliza">
+                    <label class="armor-class-label font-base-label" for="armor-class" title="Classe de armadura">C.A.</label>
+                    <input class="armor-class font-base equipment-txt-height" type="text" name="armor-class" id="armor-class" placeholder="0" title="Valor da classe de armadura">
+                    <input class="armor-desc font-base font-italic timesnewroman equipment-txt-height" type="text" name="armor-desc" id="armor-desc" placeholder="Descrição" title="A descrição da veste que utiliza">
+                </div>
+                <div class="holster">
+                    <label class="holster-label font-base-label" for="holster-name" title="Coldre">Coldre</label>
+                    <input class="holster-name font-base font-base equipment-txt-height" type="text" name="holster-name" id="holster-name" placeholder="Nome" title="O nome da arma de arremesso que carrega no coldre">
+                    <label class="font-base-label" for="holster-dice" title="Dado de dano">Dano</label>
+                    <input class="holster-dice font-base timesnewroman equipment-txt-height" type="text" name="holster-dice" id="holster-dice" placeholder="Dado" title="Valor do dado de dano">
+                    <input class="holster-quantity font-base equipment-txt-height" type="text" name="holster-quantity" id="holster-quantity" placeholder="0" title="Quantidade de armas de arremesso">
+                    <input class="holster-desc font-base font-italic timesnewroman equipment-txt-height" type="text" name="holster-desc" id="holster-desc" placeholder="Descrição" title="A descrição das armas de arremesso que carrega no coldre">
+                </div>
+                <div class="hp-ch">
+                    <input class="hp-txt" type="text" name="hp-txt" id="hp-txt" placeholder="HP" title="Pontos de vida">
+                    <label class="hp-img" for="hp-txt"></label>                   
+                    <label class="ch-img" for="ch-txt"></label>
+                    <input class="ch-txt" type="text" name="ch-txt" id="ch-txt" placeholder="CH" title="Reserva de chakra">
+                </div>
+                <span class="level">
+                    <label class="font-upper font-big text-indent levibrush" for="level">LEVEL</label>
+                    <input class="lvl-input font-upper font-biggest text-indent" type="text" name="level" id="level" placeholder="0">
+                </span>
+                <span class="exp">
+                    <label class="font-base-label font-upper font-italic levibrush" for="exp">EXP</label>
+                    <input class="exp-input font-base-label font-upper" type="text" name="exp" id="exp" placeholder="0">
+                </span>
+            </div>
+            <div class="dynamic">
+                <div class="stats" id="stats">
+                    <div class="stats-row-1">
+                        <div class="str">
+                            <label class="font-big" for="STR" title="Força">FOR</label>
+                            <div class="str-value">
+                                <input class="stats-value font-bigger" type="text" name="STR" id="STR" title="Aumenta a força física" placeholder="0">
+                                <label class="mod-label font-mod" for="str-mod" title="Modificador de Força">+</label>
+                                <input class="str-mod mod-value" type="text" name="str-mod" id="str-mod" placeholder="0">
+                            </div>
+                        </div>
+                        <div class="int">
+                            <label class="font-big" for="INT" title="Inteligência">INT</label>
+                            <div class="int-value">
+                                <input class="stats-value font-bigger" type="text" name="INT" id="INT" title="Permite um controle consciente da reserva de chakra e descobre formas de potencializar jutsus elementais" placeholder="0">
+                                <label class="mod-label font-mod" for="int-mod" title="Modificador de Inteligência">+</label>
+                                <input class="int-mod mod-value" type="text" name="int-mod" id="int-mod" placeholder="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats-row-2">
+                        <div class="dex">
+                            <label class="font-big" for="DEX" title="Destreza">DES</label>
+                            <div class="dex-value">
+                                <input class="stats-value font-bigger" type="text" name="DEX" id="DEX" title="Melhora a coordenação com armas corpo-a-corpo, de arremesso e selos de mão, potencializa tecnicas de ninjutsu médico" placeholder="0">
+                                <label class="mod-label font-mod" for="dex-mod" title="Modificador de Destreza">+</label>
+                                <input class="dex-mod mod-value" type="text" name="dex-mod" id="dex-mod" placeholder="0">
+                            </div>
+                        </div>
+                        <div class="con">
+                            <label class="font-big" for="CON" title="Consistência">CON</label>
+                            <div class="con-value">
+                                <input class="stats-value font-bigger" type="text" name="CON" id="CON" title=" Fortifica o corpo contra substâncias tóxicas e cria resistência para genjutsus" placeholder="0">
+                                <label class="mod-label font-mod" for="con-mod" title="Modificador de Consistência">+</label>
+                                <input class="con-mod mod-value" type="text" name="con-mod" id="con-mod" placeholder="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats-row-3">
+                        <div class="cha">
+                            <label class="font-big" for="CHA" title="Carisma">CAR</label>
+                            <div class="cha-value">
+                                <input class="stats-value font-bigger" type="text" name="CHA" id="CHA" title="Discurso no jutsu" placeholder="0">
+                                <label class="mod-label font-mod" for="cha-mod" title="Modificador de Carisma">+</label>
+                                <input class="cha-mod mod-value" type="text" name="cha-mod" id="cha-mod" placeholder="0">
+                            </div>
+                        </div>
+                        <div class="wis">
+                            <label class="font-big" for="WIS" title="Sabedoria">SAB</label>
+                            <wis class="wis-value">
+                                <input class="stats-value font-bigger" type="text" name="WIS" id="WIS" title="Permite compreender as diversas formas de ver o mundo, as pessoas e os lugares. Também afeta a forma de decifrar informações." placeholder="0">
+                                <label class="mod-label font-mod" for="wis-mod" title="Modificador de Sabedoria">+</label>
+                                <input class="wis-mod mod-value" type="text" name="wis-mod" id="wis-mod" placeholder="0">
+                            </wis>
+                        </div>
+                    </div>
+                </div>
+                <div class="proficiencies" id="proficiencies">
+                    <div class="tai proficiencies-column-left">
+                        <label class="font-proficiencies" for="TAI" title="Taijutsu">Taijutsu</label>
+                        <input class="prof-value-left" type="text" name="TAI" id="TAI" title="Técnica corpo-a-corpo" placeholder="0">
+                    </div>
+                    <div class="buki proficiencies-column-right">
+                        <label class="font-proficiencies" for="BUKI" title="Bukijutsu">Bukijutsu</label>
+                        <input class="prof-value-right" type="text" name="BUKI" id="BUKI" title="Técnica com armamentos: Kenjutsu (lâminas), Shurikenjutsu (arremesso) e Bōjutsu (bastão e armas leves)" placeholder="0">
+                    </div>
+                    <div class="gen proficiencies-column-left">
+                        <label class="font-proficiencies" for="GEN" title="Genjutsu">Genjutsu</label>
+                        <input class="prof-value-left" type="text" name="GEN" id="GEN" title="Técnica ilusória" placeholder="0">
+                    </div>
+                    <div class="nin proficiencies-column-right">
+                        <label class="font-proficiencies" for="NIN" title="Ninjutsu">Ninjutsu</label>
+                        <input class="prof-value-right" type="text" name="NIN" id="NIN" title="Técnica ninja focada em invocações de jutsus elementais" placeholder="0">
+                    </div>
+                    <div class="bunshin proficiencies-column-left">
+                        <label class="font-proficiencies" for="BUNSHIN" title="Bunshinjutsu">Bunshinjutsu</label>
+                        <input class="prof-value-left" type="text" name="BUNSHIN" id="BUNSHIN" title="Técnica de invocar clones" placeholder="0">
+                    </div>
+                    <div class="konbi proficiencies-column-right">
+                        <label class="font-proficiencies" for="KONBI" title="Konbijutsu">Konbijutsu</label>
+                        <input class="prof-value-right" type="text" name="KONBI" id="KONBI" title="Técnica colaborativa, ideal para ataques estratégicos em equipe" placeholder="0">
+                    </div>
+                    <div class="fuuin proficiencies-column-left">
+                        <label class="font-proficiencies" for="FUUIN" title="Fūinjutsu">Fuuinjutsu</label>
+                        <input class="prof-value-left" type="text" name="FUUIN" id="FUUIN" title="Técnica de selamento" placeholder="0">
+                    </div>
+                    <div class="kugutsu proficiencies-column-right">
+                        <label class="font-proficiencies" for="KUGUTSU" title="Kugutsujutsu">Kugutsujutsu</label>
+                        <input class="prof-value-right" type="text" name="KUGUTSU" id="KUGUTSU" title="Técnica de marionetes" placeholder="0">
+                    </div>
+                    <div class="kin proficiencies-column-left">
+                        <label class="font-proficiencies" for="KIN" title="Kinjutsu">Kinjutsu</label>
+                        <input class="prof-value-left" type="text" name="KIN" id="KIN" title="Técnica proibida" placeholder="0">
+                    </div>
+                    <div class="hi proficiencies-column-right">
+                        <label class="font-proficiencies" for="HI" title="Hijutsu">Hijutsu</label>
+                        <input class="prof-value-right" type="text" name="HI" id="HI" title="Técnica secreta: passada entre gerações (e.g., mestre-aprendiz, família) - não confundir com Kekkei Genkai" placeholder="0">
+                    </div>
+                    <div class="yuugoo proficiencies-column-left">
+                        <label class="font-proficiencies" for="YUUGOO" title="Yūgōjutsu">Yuugoojutsu</label>
+                        <input class="prof-value-left" type="text" name="YUUGOO" id="YUUGOO" title="Técnica de fusão elemental" placeholder="0">
+                    </div>
+                    <div class="nintai proficiencies-column-right">
+                        <label class="font-proficiencies" for="NINTAI" title="Nintaijutsu">Nintaijutsu</label>
+                        <input class="prof-value-right" type="text" name="NINTAI" id="NINTAI" title="Técnica de infusão elemental em técnicas corporais" placeholder="0">
+                    </div>
+                    <div class="tansaku proficiencies-column-left">
+                        <label class="font-proficiencies" for="TANSAKU" title="Tansakujutsu">Tansakujutsu</label>
+                        <input class="prof-value-left" type="text" name="TANSAKU" id="TANSAKU" title="Técnica de busca" placeholder="0">
+                    </div>
+                    <div class="kinko proficiencies-column-right">
+                        <label class="font-proficiencies" for="KINKO" title="Kinkojutsu">Kinkojutsu</label>
+                        <input class="prof-value-right" type="text" name="KINKO" id="KINKO" title="Técnica de aprisionamento" placeholder="0">
+                    </div>
+                    <div class="saisei proficiencies-column-left">
+                        <label class="font-proficiencies" for="SAISEI" title="Saiseijutsu">Saiseijutsu</label>
+                        <input class="prof-value-left" type="text" name="SAISEI" id="SAISEI" title="Técnica de regeneração" placeholder="0">
+                    </div>
+                    <div class="kyuuin proficiencies-column-right">
+                        <label class="font-proficiencies" for="KYUUIN" title="Kyūinjutsu">Kyuuinjutsu</label>
+                        <input class="prof-value-right" type="text" name="KYUUIN" id="KYUUIN" title="Técnica de absorção de chakra" placeholder="0">
+                    </div>
+                </div>
+                <div class="jutsus" id="jutsus">
+                    <label class="font-bigger font-italic levibrush" for="jutsu-txt">- jutsu -</label>
+                <textarea class="jutsu-txt-area font-jutsus georgia" name="jutsu-txt" id="jutsu-txt" cols="30" rows="200" placeholder="--------------------------x-------------------------
+Nome do Jutsu
+
+CH: x
+Categoria: Proficiência
+Descrição: Detalhes de efeito, condições e/ou descrição visual
+--------------------------x-------------------------
+
+--------------------------x-------------------------
+Nome do Jutsu
+
+CH: x
+Categoria: Proficiência
+Descrição: Detalhes de efeito, condições e/ou descrição visual
+--------------------------x-------------------------
+.
+.
+.
+">--------------------------x-------------------------
+Nome do Jutsu
+
+CH: x
+Categoria: Proficiência
+Descrição: Detalhes de efeito, condições e/ou descrição visual
+--------------------------x-------------------------</textarea>
+                </div>
+                <div class="elements" id="elements">
+                    <div class="water-content">
+                        <input type="checkbox" name="water" id="water" title="Água">
+                        <label class="font-ele" for="water" title="Água">水</label>
+                    </div>
+                    <div class="fire-content">
+                        <input type="checkbox" name="fire" id="fire" title="Fogo">
+                        <label class="font-ele" for="fire" title="Fogo">火</label>                
+                    </div>
+                    <div class="wind-content">
+                        <input type="checkbox" name="wind" id="wind" title="Vento">
+                        <label class="font-ele" for="wind" title="Vento">風</label>
+                    </div>
+                    <div class="lightning-content">
+                        <input type="checkbox" name="lightning" id="lightning" title="Raio">
+                        <label class="font-ele" for="lightning" title="Raio">雷</label>
+                    </div>
+                    <div class="earth-content">
+                        <input type="checkbox" name="earth" id="earth" title="Terra">
+                        <label class="font-ele" for="earth" title="Terra">土</label>
+                    </div>
+                    <div class="yin-content">
+                        <input type="checkbox" name="yin" id="yin" title="Yin">
+                        <label class="font-ele" for="yin" title="Yin">陰</label>
+                    </div>
+                    <div class="yang-content">
+                        <input type="checkbox" name="yang" id="yang" title="Yang">
+                        <label class="font-ele" for="yang" title="Yang">陽</label>
+                    </div>
+                    <div class="yinyang-content">
+                        <input type="checkbox" name="yinyang" id="yinyang" title="Yin Yang">
+                        <label class="font-ele-yinyang" for="yinyang" title="Yin Yang">陰陽</label>
+                    </div>   
+                </div>
+                <div class="summon" id="summon">
+                    <div class="summon-name">
+                        <input class="summon-name-input font-big" type="text" name="summon-name-input" id="summon-name-input" placeholder="O NAMAE WA?">
+                    </div>
+                    <div class="summon-appearance">
+                        <label class="summon-image-button" for="summon-image-browse">
+                            <img class="summon-img" id="summon-img" src="img/char_img.png" alt="">
+                            <input class="summon-img-browse" type="file" accept=".png" id="summon-image-browse">
+                        </label>
+                    </div>
+                    <div class="summon-stats">
+                        <div class="stats-row-1">
+                            <div class="summon-str">
+                                <label class="font-base-label" for="summon-STR" title="Força">FOR</label>
+                                <div class="str-value">
+                                    <input class="summon-stats-value font-big" type="text" name="summon-STR" id="summon-STR" title="Aumenta a força física" placeholder="0">
+                                </div>
+                            </div>
+                            <div class="summon-int">
+                                <label class="font-base-label" for="summon-INT" title="Inteligência">INT</label>
+                                <div class="int-value">
+                                    <input class="summon-stats-value font-big" type="text" name="summon-INT" id="summon-INT" title="Permite um controle consciente da reserva de chakra e descobre formas de potencializar jutsus elementais" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stats-row-2">
+                            <div class="summon-dex">
+                                <label class="font-base-label" for="summon-DEX" title="Destreza">DES</label>
+                                <div class="dex-value">
+                                    <input class="summon-stats-value font-big" type="text" name="summon-DEX" id="summon-DEX" title="Melhora a coordenação com armas corpo-a-corpo, de arremesso e selos de mão, potencializa tecnicas de ninjutsu médico" placeholder="0">
+                                </div>
+                            </div>
+                            <div class="summon-con">
+                                <label class="font-base-label" for="summon-CON" title="Consistência">CON</label>
+                                <div class="con-value">
+                                    <input class="summon-stats-value font-big" type="text" name="summon-CON" id="summon-CON" title=" Fortifica o corpo contra substâncias tóxicas e cria resistência para genjutsus" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stats-row-3">
+                            <div class="summon-cha">
+                                <label class="font-base-label" for="summon-CHA" title="Carisma">CAR</label>
+                                <div class="cha-value">
+                                    <input class="summon-stats-value font-big" type="text" name="summon-CHA" id="summon-CHA" title="Discurso no jutsu" placeholder="0">
+                                </div>
+                            </div>
+                            <div class="summon-wis">
+                                <label class="font-base-label" for="summon-WIS" title="Sabedoria">SAB</label>
+                                <wis class="wis-value">
+                                    <input class="summon-stats-value font-big" type="text" name="summon-WIS" id="summon-WIS" title="Permite compreender as diversas formas de ver o mundo, as pessoas e os lugares. Também afeta a forma de decifrar informações." placeholder="0">
+                                </wis>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summon-proficiency">
+                        <input class="summon-proficiency-input font-base" type="text" placeholder="Proficiencia">
+                        <input class="summon-proficiency-value font-base" type="text" placeholder="0">
+                    </div>
+                    <div class="summon-weapon">
+                        <label class=" font-base" for="summon-weapon">Dano</label>
+                        <input class="summon-weapon-dice font-base timesnewroman" type="text" name="summon-weapon" id="summon-weapon" placeholder="Dado">
+                    </div>
+                    <div class="summon-armor">
+                        <label class=" font-base" for="summon-armor-class">C.A.</label>
+                        <input class="summon-armor-class font-base" type="text" name="summon-armor-class" id="summon-armor-class" placeholder="0">
+                    </div>
+                    <div class="summon-hp-ch">
+                        <input class="summon-hp-txt" type="text" name="summon-hp-txt" id="summon-hp-txt" placeholder="HP" title="Pontos de vida">
+                        <label class="summon-hp-img" for="summon-hp-txt"></label>                   
+                        <label class="summon-ch-img" for="summon-ch-txt"></label>
+                        <input class="summon-ch-txt" type="text" name="summon-ch-txt" id="summon-ch-txt" placeholder="CH" title="Reserva de chakra">
+                    </div>
+                    <div class="summon-level">
+                        <label class="font-upper font-big text-indent levibrush" for="summon-level">LEVEL</label>
+                        <input class="summon-lvl-input font-upper font-biggest text-indent" type="text" name="summon-level" id="summon-level" placeholder="0">
+                    </div>
+                    <div class="summon-exp">
+                        <label class="font-base-label font-upper font-italic levibrush" for="summon-exp">EXP</label>
+                        <input class="summon-exp-input font-base-label font-upper" type="text" name="summon-exp" id="summon-exp" placeholder="0">
+                    </div>
+                </div>
+                <div class="inventory" id="inventory">
+                    <div class="item-1 items-disposition">
+                        <div class="inventory-img">
+                            <label class="item-img" for="i-1-qnt"><div class="item-img-config item-img-1" alt="" title="Pilulas de HP"></div></label>
+                        </div>
+                        <div class="inventory-inputs">
+                            <div class="inventory-inputs-row-1">
+                                <input class="item-txt item-hp font-base-label" type="text" id="i-1" name="i-1" placeholder="Pilulas HP" readonly disabled>
+                                <p class="item-x">x</p>
+                                <input class="item-value font-big" type="text" name="i-1-qnt" id="i-1-qnt" placeholder="0">
+                            </div>
+                            <div class="inventory-inputs-row-2">
+                                <input class="item-desc font-base font-italic timesnewroman equipment-txt-height hp-desc" type="text"  id="i-1-desc" name="i-1-desc" placeholder="Fabricadas por Iryō ninjas para auxílio em missão">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-2 items-disposition">
+                        <div class="inventory-img">
+                            <label class="item-img" for="i-2-qnt"><div class="item-img-config item-img-2" alt="" title="Pilulas de CH"></div></label>
+                        </div>
+                        <div class="inventory-inputs">
+                            <div class="inventory-inputs-row-1">
+                                <input class="item-txt item-ch font-base-label" type="text" id="i-2" name="i-2" placeholder="Pilulas CH" readonly disabled>
+                                <p class="item-x">x</p>
+                                <input class="item-value font-big" type="text" name="i-2-qnt" id="i-2-qnt" placeholder="0">
+                            </div>
+                            <div class="inventory-inputs-row-2">
+                                <input class="item-desc font-base font-italic timesnewroman equipment-txt-height ch-desc" type="text"  id="i-2-desc" name="i-2-desc" placeholder="Fabricadas por Iryō ninjas para auxílio em missão">
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="item-3 items-disposition">
+                        <div class="inventory-img">
+                            <label class="item-img" for="i-3-qnt"><div class="item-img-config item-img-3" alt="" title="Bomba de fumaça"></div></label>
+                        </div>
+                        <div class="inventory-inputs">
+                            <div class="inventory-inputs-row-1">
+                                <input class="item-txt item-retreat font-base-label" type="text" id="i-3" name="i-3" placeholder="Bombas de fumaca" readonly disabled>
+                                <p class="item-x">x</p>
+                                <input class="item-value font-big" type="text" name="i-3-qnt" id="i-3-qnt" placeholder="0">
+                            </div>
+                            <div class="inventory-inputs-row-2">
+                                <input class="item-desc font-base font-italic timesnewroman equipment-txt-height" type="text"  id="i-3-desc" name="i-3-desc" placeholder="São usadas para desengajar de situações perigosas">
+                            </div>
+                        </div>    
+                    </div>
+                    <div class="item-4 items-disposition">
+                        <div class="inventory-img">
+                            <label class="item-img" for="i-4-qnt"><div class="item-img-config item-img-4" alt="" title="Item chave"></div></label>
+                        </div>
+                        <div class="inventory-inputs">
+                            <div class="inventory-inputs-row-1">
+                                <input class="item-txt item-mission font-base-label" type="text" id="i-4" name="i-4" placeholder="vazio">
+                                <p class="item-x">x</p>
+                                <input class="item-value font-big" type="text" name="i-4-qnt" id="i-4-qnt" placeholder="0">
+                            </div>
+                            <div class="inventory-inputs-row-2">
+                                <input class="item-desc font-base font-italic timesnewroman equipment-txt-height" type="text"  id="i-4-desc" name="i-4-desc" placeholder="Um item chave para cumprir a missão">
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="item-5 items-disposition">
+                        <div class="inventory-img">
+                            <label class="item-img" for="i-5-qnt"><div class="item-img-config item-img-5" alt="" title="Espólios"></div></label>
+                        </div>
+                        <div class="inventory-inputs">
+                            <div class="inventory-inputs-row-1">
+                                <input class="item-txt font-base-label" type="text" id="i-5" name="i-5" placeholder="vazio">
+                                <p class="item-x">x</p>
+                                <input class="item-value font-big" type="text" name="i-5-qnt" id="i-5-qnt" placeholder="0">
+                            </div>
+                            <div class="inventory-inputs-row-2">
+                                <input class="item-desc font-base font-italic timesnewroman equipment-txt-height" type="text"  id="i-5-desc" name="i-5-desc" placeholder="Descrição - Miscelânea">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-6 items-disposition">
+                        <div class="inventory-img">
+                            <label class="item-img" for="i-6-qnt"><div class="item-img-config item-img-6" alt="" title="Espólios"></div></label>
+                        </div>
+                        <div class="inventory-inputs">
+                            <div class="inventory-inputs-row-1">
+                                <input class="item-txt font-base-label" type="text" id="i-6" name="i-6" placeholder="vazio">
+                                <p class="item-x">x</p>
+                                <input class="item-value font-big" type="text" name="i-6-qnt" id="i-6-qnt" placeholder="0">
+                            </div>
+                            <div class="inventory-inputs-row-2">
+                                <input class="item-desc font-base font-italic timesnewroman equipment-txt-height" type="text"  id="i-6-desc" name="i-6-desc" placeholder="Descrição - Miscelânea">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-7 items-disposition">
+                        <div class="inventory-img">
+                            <label class="item-img" for="i-7-qnt"><div class="item-img-config item-img-7" alt="" title="Espólios"></div></label>
+                        </div>
+                        <div class="inventory-inputs">
+                            <div class="inventory-inputs-row-1">
+                                <input class="item-txt font-base-label" type="text" id="i-7" name="i-7" placeholder="vazio">
+                                <p class="item-x">x</p>
+                                <input class="item-value font-big" type="text" name="i-7-qnt" id="i-7-qnt" placeholder="0">
+                            </div>
+                            <div class="inventory-inputs-row-2">
+                                <input class="item-desc font-base font-italic timesnewroman equipment-txt-height" type="text"  id="i-7-desc" name="i-7-desc" placeholder="Descrição - Miscelânea">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-8 items-disposition">
+                        <div class="inventory-img">
+                            <label class="item-img" for="i-8-qnt"><div class="item-img-config item-img-8" alt="" title="Espólios"></div></label>
+                        </div>
+                        <div class="inventory-inputs">
+                            <div class="inventory-inputs-row-1">
+                                <input class="item-txt font-base-label" type="text" id="i-8" name="i-8" placeholder="vazio">
+                                <p class="item-x">x</p>
+                                <input class="item-value font-big" type="text" name="i-8-qnt" id="i-8-qnt" placeholder="0">
+                            </div>
+                            <div class="inventory-inputs-row-2">
+                                <input class="item-desc font-base font-italic timesnewroman equipment-txt-height" type="text"  id="i-8-desc" name="i-8-desc" placeholder="Descrição - Miscelânea">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-9 items-disposition">
+                        <label class="money-label font-base-label" for="money" title="Ryō">Ryoo</label>
+                        <input class="money-value font-big" type="text" name="money" id="money" placeholder="0">
+                    </div>
+                </div>
+
+                <!-- Animations -->
+                <div class="smoke-fx" id="smoke-fx">
+                    <div class="smoke-left">
+                        <div class="smoke-left-1" id="smoke-left-1"></div>
+                        <div class="smoke-left-2" id="smoke-left-2"></div>
+                        <div class="smoke-left-3" id="smoke-left-3"></div>
+                    </div>
+                    <div class="smoke-up" id="smoke-up"></div>
+                    <div class="smoke-right">
+                        <div class="smoke-right-1" id="smoke-right-1"></div>
+                        <div class="smoke-right-2" id="smoke-right-2"></div>
+                        <div class="smoke-right-3" id="smoke-right-3"></div>
+                    </div>
+                    <div class="smoke-down" id="smoke-down"></div>
+                </div>
+            </div>
+            <div class="nav">
+                <input class="stats-bt" type="checkbox" name="stats-bt" id="stats-bt" title="Atributos">
+                <input class="proficiencies-bt" type="checkbox" name="proficiencies-bt" id="proficiencies-bt" title="Proficiências">
+                <input class="jutsus-bt" type="checkbox" name="jutsus-bt" id="jutsus-bt" title="Jutsus">
+                <input class="elements-bt" type="checkbox" name="elements-bt" id="elements-bt" title="Elementos">
+                <input class="summon-bt" type="checkbox" name="summon-bt" id="summon-bt" title="Kuchiyose">
+                <input class="inventory-bt" type="checkbox" name="inventory-bt" id="inventory-bt" title="Inventário">
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
