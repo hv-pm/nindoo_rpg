@@ -423,3 +423,344 @@ invBt.addEventListener("click", ()=> {
     setTimeout(() => downSmoke.style.animation = "smoke-down 0.7s forwards", 5);
     setTimeout(() => smokeHide.style.animation = "deactivate 0.7s forwards", 5);
 });
+
+const bioTxt = document.getElementById('bio-txt');
+const type = document.getElementById('type');
+const rank = document.getElementById('rank');
+const weaponName = document.getElementById('weapon-name');
+const weaponDice = document.getElementById('weapon-dice');
+const weaponDesc = document.getElementById('weapon-desc');
+const armorName = document.getElementById('armor-name');
+const armorClass = document.getElementById('armor-class');
+const armorDesc = document.getElementById('armor-desc');
+const holsterName = document.getElementById('holster-name');
+const holsterDice = document.getElementById('holster-dice');
+const holsterQnt = document.getElementById('holster-quantity');
+const holsterDesc = document.getElementById('holster-desc');
+const charHp = document.getElementById('hp-txt');
+const charCh = document.getElementById('ch-txt');
+const charLevel = document.getElementById('level');
+const charExp = document.getElementById('exp');
+const str = document.getElementById('STR');
+const strMod = document.getElementById('str-mod');
+const int = document.getElementById('INT');
+const intMod = document.getElementById('int-mod');
+const dex = document.getElementById('DEX');
+const dexMod = document.getElementById('dex-mod');
+const con = document.getElementById('CON');
+const conMod = document.getElementById('con-mod');
+const cha = document.getElementById('CHA');
+const chaMod = document.getElementById('cha-mod');
+const wis = document.getElementById('WIS');
+const wisMod = document.getElementById('wis-mod');
+const tai = document.getElementById('TAI');
+const buki = document.getElementById('BUKI');
+const gen = document.getElementById('GEN');
+const nin = document.getElementById('NIN');
+const bunshin = document.getElementById('BUNSHIN');
+const konbi = document.getElementById('KONBI');
+const fuuin = document.getElementById('FUUIN');
+const kugutsu = document.getElementById('KUGUTSU');
+const kin = document.getElementById('KIN');
+const hi = document.getElementById('HI');
+const yuugoo = document.getElementById('YUUGOO');
+const nintai = document.getElementById('NINTAI');
+const tansaku = document.getElementById('TANSAKU');
+const kinko = document.getElementById('KINKO');
+const saisei = document.getElementById('SAISEI');
+const kyuuin = document.getElementById('KYUUIN');
+const jutsuTxt = document.getElementById('jutsu-txt');
+const water = document.getElementById('water');
+const fire = document.getElementById('fire');
+const wind = document.getElementById('wind');
+const lightning = document.getElementById('lightning');
+const earth = document.getElementById('earth');
+const yin = document.getElementById('yin');
+const yang = document.getElementById('yang');
+const yinyang = document.getElementById('yinyang');
+const sumName = document.getElementById('summon-name-input');
+const sumStr = document.getElementById('summon-STR');
+const sumInt = document.getElementById('summon-INT');
+const sumDex = document.getElementById('summon-DEX');
+const sumCon = document.getElementById('summon-CON');
+const sumCha = document.getElementById('summon-CHA');
+const sumWis = document.getElementById('summon-WIS');
+const sumProfName = document.getElementById('summon-proficiency-input');
+const sumProfValue = document.getElementById('summon-proficiency-value');
+const sumWeaponDice = document.getElementById('summon-weapon');
+const sumArmorClass = document.getElementById('summon-armor-class');
+const sumHp = document.getElementById('summon-hp-txt');
+const sumCh = document.getElementById('summon-ch-txt');
+const sumLevel = document.getElementById('summon-level');
+const sumExp = document.getElementById('summon-exp');
+const hpPillQnt = document.getElementById('i-1-qnt');
+const hpPillDesc = document.getElementById('i-1-desc');
+const chPillQnt = document.getElementById('i-2-qnt');
+const chPillDesc = document.getElementById('i-2-desc');
+const missionItemName = document.getElementById('i-3');
+const missionItemQnt = document.getElementById('i-3-qnt');
+const missionItemDesc = document.getElementById('i-3-desc');
+const retreatName = document.getElementById('i-4');
+const retreatQnt = document.getElementById('i-4-qnt');
+const retreatDesc = document.getElementById('i-4-desc');
+const miscFirstName = document.getElementById('i-5');
+const miscFirstQnt = document.getElementById('i-5-qnt');
+const miscFirstDesc = document.getElementById('i-5-desc');
+const miscSecondName = document.getElementById('i-6');
+const miscSecondQnt = document.getElementById('i-6-qnt');
+const miscSecondDesc = document.getElementById('i-6-desc');
+const miscThirdName = document.getElementById('i-7');
+const miscThirdQnt = document.getElementById('i-7-qnt');
+const miscThirdDesc = document.getElementById('i-7-desc');
+const miscFourthName = document.getElementById('i-8');
+const miscFourthQnt = document.getElementById('i-8-qnt');
+const miscFourthDesc = document.getElementById('i-8-desc');
+const money = document.getElementById('money');
+
+const saveBt = document.getElementById('saveBt');
+saveBt.addEventListener("click", ()=>{
+    var data = {
+        "charName":characterName.value,
+        "konohagakure":konohaBt.checked,
+        "kirigakure":kiriBt.checked,
+        "sunagakure":sunaBt.checked,
+        "iwagakure":iwaBt.checked,
+        "kumogakure":kumoBt.checked,
+        "amegakure":ameBt.checked,
+        "bio":bioTxt.value,
+        "type":type.value,
+        "rank":rank.value,
+        "weaponName":weaponName.value,
+        "weaponDice":weaponDice.value,
+        "weaponDesc":weaponDesc.value,
+        "armorName":armorName.value,
+        "armorClass":armorClass.value,
+        "armorDesc":armorDesc.value,
+        "holserName":holsterName.value,
+        "holsterDice":holsterDice.value,
+        "holsterQnt":holsterQnt.value,
+        "holsterDesc":holsterDesc.value,
+        "charHp":charHp.value,
+        "charCh":charCh.value,
+        "charLevel":charLevel.value,
+        "charExp":charExp.value,
+        "charStr":str.value,
+        "charStrMod":strMod.value,
+        "charInt":int.value,
+        "charIntMod":intMod.value,
+        "charDex":dex.value,
+        "charDexMod":dexMod.value,
+        "charCon":con.value,
+        "charConMod":conMod.value,
+        "charCha":cha.value,
+        "charChaMod":chaMod.value,
+        "charWis":wis.value,
+        "charWisMod":wisMod.value,
+        "taijutsu":tai.value,
+        "bukijutsu":buki.value,
+        "genjutsu":gen.value,
+        "ninjutsu":nin.value,
+        "bunshinjutsu":bunshin.value,
+        "konbijutsu":konbi.value,
+        "fuuinjutsu":fuuin.value,
+        "kugutsujutsu":kugutsu.value,
+        "kinjutsu":kin.value,
+        "hijutsu":hi.value,
+        "yuugoojutsu":yuugoo.value,
+        "nintaijutsu":nintai.value,
+        "tansakujutsu":tansaku.value,
+        "kinkojutsu":kinko.value,
+        "saiseijutsu":saisei.value,
+        "kyuuinjutsu":kyuuin.value,
+        "jutsuTxt":jutsuTxt.value,
+        "water":water.checked,
+        "fire":fire.checked,
+        "wind":wind.checked,
+        "lightning":lightning.checked,
+        "earth":earth.checked,
+        "yin":yin.checked,
+        "yang":yang.checked,
+        "yinyang":yinyang.checked,
+        "sumName":sumName.value,
+        "sumStr":sumStr.value,
+        "sumInt":sumInt.value,
+        "sumDex":sumDex.value,
+        "sumCon":sumCon.value,
+        "sumCha":sumCha.value,
+        "sumWis":sumWis.value,
+        "sumProfName":sumProfName.value,
+        "sumProfValue":sumProfValue.value,
+        "sumWeaponDice":sumWeaponDice.value,
+        "sumArmorClass":sumArmorClass.value,
+        "sumHp":sumHp.value,
+        "sumCh":sumCh.value,
+        "sumLevel":sumLevel.value,
+        "sumExp":sumExp.value,
+        "hpPillQnt":hpPillQnt.value,
+        "hpPillDesc":hpPillDesc.value,
+        "chPillQnt":chPillQnt.value,
+        "chPillDesc":chPillDesc.value,
+        "missionItemName":missionItemName.value,
+        "missionItemQnt":missionItemQnt.value,
+        "missionItemDesc":missionItemDesc.value,
+        "retreatName":retreatName.value,
+        "retreatQnt":retreatQnt.value,
+        "retreatDesc":retreatDesc.value,
+        "miscFirstName":miscFirstName.value,
+        "miscFirstQnt":miscFirstQnt.value,
+        "miscFirstDesc":miscFirstDesc.value,
+        "miscSecondName":miscSecondName.value,
+        "miscSecondQnt":miscSecondQnt.value,
+        "miscSecondDesc":miscSecondDesc.value,
+        "miscThirdName":miscThirdName.value,
+        "miscThirdQnt":miscThirdQnt.value,
+        "miscThirdDesc":miscThirdDesc.value,
+        "miscFourthName":miscFourthName.value,
+        "miscFourthQnt":miscFourthQnt.value,
+        "miscFourthDesc":miscFourthDesc.value,
+        "money":money.value
+    }
+    var json = JSON.stringify(data);
+    json = [json];
+    var blob = new Blob(json, { type: "text/plain;charset=utf-8" });
+    var url = window.URL || window.webkitURL;
+    link = url.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.download = "myNinja.json";
+    a.href = link;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    alert("Personagem guardado no arquivo 'myNinja.json'");
+})
+
+const loadBt = document.getElementById('loadBt');
+loadBt.addEventListener("change", loadCharacter);
+function loadCharacter() {
+    var file = URL.createObjectURL(this.files[0]);
+    file.onload = () => {
+        URL.revokeObjectURL(file);
+    }
+    fetch(file).then((response) =>{
+        response.json().then((data) =>{
+            characterName.value = data.charName;
+            konohaBt.checked = data.konohagakure;
+            kiriBt.checked = data.kirigakure;
+            sunaBt.checked = data.sunagakure;
+            iwaBt.checked = data.iwagakure;
+            kumoBt.checked = data.kumogakure;
+            ameBt.checked = data.amegakure;
+            if(konohaBt.checked == true){
+                konohaBt.checked = false;
+                konohaBt.click();
+            } else if(kiriBt.checked == true){
+                kiriBt.checked = false;
+                kiriBt.click();
+            } else if(sunaBt.checked == true){
+                sunaBt.checked = false;
+                sunaBt.click();
+            } else if(iwaBt.checked == true){
+                iwaBt.checked = false;
+                iwaBt.click();
+            } else if(kumoBt.checked == true){
+                kumoBt.checked = false;
+                kumoBt.click();
+            } else if(ame.checked == true){
+                ame.checked = false;
+                ame.click();
+            }
+            bioTxt.value = data.bio;
+            type.value = data.type;
+            rank.value = data.rank;
+            weaponName.value = data.weaponName;
+            weaponDice.value = data.weaponDice; 
+            weaponDesc.value = data.weaponDesc; 
+            armorName.value = data.armorName; 
+            armorClass.value = data.armorClass; 
+            armorDesc.value = data.armorDesc; 
+            holsterName.value = data.holserName; 
+            holsterDice.value = data.holsterDice; 
+            holsterQnt.value = data.holsterQnt; 
+            holsterDesc.value = data.holsterDesc; 
+            charHp.value = data.charHp; 
+            charCh.value = data.charCh; 
+            charLevel.value = data.charLevel; 
+            charExp.value = data.charExp; 
+            str.value = data.charStr; 
+            strMod.value = data.charStrMod; 
+            int.value = data.charInt; 
+            intMod.value = data.charIntMod; 
+            dex.value = data.charDex; 
+            dexMod.value = data.charDexMod; 
+            con.value = data.charCon; 
+            conMod.value = data.charConMod; 
+            cha.value = data.charCha; 
+            chaMod.value = data.charChaMod; 
+            wis.value = data.charWis; 
+            wisMod.value = data.charWisMod; 
+            tai.value = data.taijutsu; 
+            buki.value = data.bukijutsu; 
+            gen.value = data.genjutsu; 
+            nin.value = data.ninjutsu; 
+            bunshin.value = data.bunshinjutsu; 
+            konbi.value = data.konbijutsu; 
+            fuuin.value = data.fuuinjutsu; 
+            kugutsu.value = data.kugutsujutsu; 
+            kin.value = data.kinjutsu; 
+            hi.value = data.hijutsu; 
+            yuugoo.value = data.yuugoojutsu; 
+            nintai.value = data.nintaijutsu; 
+            tansaku.value = data.tansakujutsu; 
+            kinko.value = data.kinkojutsu; 
+            saisei.value = data.saiseijutsu; 
+            kyuuin.value = data.kyuuinjutsu; 
+            jutsuTxt.value = data.jutsuTxt; 
+            water.checked = data.water; 
+            fire.checked = data.fire; 
+            wind.checked = data.wind; 
+            lightning.checked = data.lightning; 
+            earth.checked = data.earth; 
+            yin.checked = data.yin; 
+            yang.checked = data.yang; 
+            yinyang.checked = data.yinyang; 
+            sumName.value = data.sumName; 
+            sumStr.value = data.sumStr; 
+            sumInt.value = data.sumInt; 
+            sumDex.value = data.sumDex; 
+            sumCon.value = data.sumCon; 
+            sumCha.value = data.sumCha; 
+            sumWis.value = data.sumWis; 
+            sumProfName.value = data.sumProfName; 
+            sumProfValue.value = data.sumProfValue; 
+            sumWeaponDice.value = data.sumWeaponDice; 
+            sumArmorClass.value = data.sumArmorClass; 
+            sumHp.value = data.sumHp; 
+            sumCh.value = data.sumCh; 
+            sumLevel.value = data.sumLevel; 
+            sumExp.value = data.sumExp; 
+            hpPillQnt.value = data.hpPillQnt; 
+            hpPillDesc.value = data.hpPillDesc; 
+            chPillQnt.value = data.chPillQnt; 
+            chPillDesc.value = data.chPillDesc; 
+            missionItemName.value = data.missionItemName; 
+            missionItemQnt.value = data.missionItemQnt; 
+            missionItemDesc.value = data.missionItemDesc; 
+            retreatName.value = data.retreatName; 
+            retreatQnt.value = data.retreatQnt; 
+            retreatDesc.value = data.retreatDesc; 
+            miscFirstName.value = data.miscFirstName; 
+            miscFirstQnt.value = data.miscFirstQnt; 
+            miscFirstDesc.value = data.miscFirstDesc; 
+            miscSecondName.value = data.miscSecondName; 
+            miscSecondQnt.value = data.miscSecondQnt; 
+            miscSecondDesc.value = data.miscSecondDesc; 
+            miscThirdName.value = data.miscThirdName; 
+            miscThirdQnt.value = data.miscThirdQnt; 
+            miscThirdDesc.value = data.miscThirdDesc; 
+            miscFourthName.value = data.miscFourthName; 
+            miscFourthQnt.value = data.miscFourthQnt; 
+            miscFourthDesc.value = data.miscFourthDesc;
+            money.value = data.money;
+        })
+    })
+}
