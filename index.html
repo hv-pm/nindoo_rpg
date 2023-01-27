@@ -9,7 +9,13 @@
     <link rel="icon" href="img/favicon.svg">
 </head>
 <body>
-    <div class="credits" id="credits-button"></div>
+    <label class="saveLabel" for="saveBt" title="Salvar">💾
+    <button class="saveBt" name="saveBt" id="saveBt"></button>
+    </label>
+    <label class="loadLabel" for="loadBt" title="Carregar">👩‍💻
+    <input class="loadBt" type="file" accept=".json" id="loadBt" name="loadBt">
+    </label>
+    <div class="credits" id="credits-button" title="Créditos"></div>
     <div class="grid">
         <div class="profile">
             <div class="profile-content">
@@ -355,8 +361,8 @@ Descrição: Detalhes de efeito, condições e/ou descrição visual
                         </div>
                     </div>
                     <div class="summon-proficiency">
-                        <input class="summon-proficiency-input font-base" type="text" placeholder="Proficiencia">
-                        <input class="summon-proficiency-value font-base" type="text" placeholder="0">
+                        <input class="summon-proficiency-input font-base" type="text" id="summon-proficiency-input" placeholder="Proficiencia">
+                        <input class="summon-proficiency-value font-base" type="text" id="summon-proficiency-value" placeholder="0">
                     </div>
                     <div class="summon-weapon">
                         <label class=" font-base" for="summon-weapon">Dano</label>
